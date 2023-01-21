@@ -6,6 +6,8 @@ import ROUTES from "../app/routes";
 import { selectTopics } from "../features/topics/topicsSlice";
 import { addQuizForTopicId } from "../features/quizzes/quizzesSlice";
 import { useDispatch } from "react-redux";
+import { addCard } from "../features/cards/cardSlice";
+
 
 export default function NewQuizForm() {
   const [name, setName] = useState("");
@@ -14,6 +16,7 @@ export default function NewQuizForm() {
   const history = useHistory();
   const topics = useSelector(selectTopics);
   const dispatch = useDispatch();
+
   
 
 
@@ -23,13 +26,35 @@ export default function NewQuizForm() {
       return;
     }
 
+    //{ id: '123', front: 'front of card', back: 'back of card'}.
+
     const cardIds = [];
+    //******************************************************* */
+    //********************************************************
+    //TODO => The forEach() method does not return a new array, whereas the map() method returns a new array. 
+    //TODO => The map() method is used to transform the elements of an array, whereas the forEach() method is used to loop through the elements of an array.
+    //******************************************************* */
+    //******************************************************* */
+
+
+    cards.forEach( (card) => {
+        let cardId = uuidv4();
+        cardIds.push(cardId);
+        dispatch(addCard({ ...card, id:cardId}))
+    })
+
+    //TODO => So basically instead of creating new front and back lements, becasue each card has these 2 exactly same, I am using this fact by copying the previous card by ...card and just changing the id key. So each card is the same just with the defferent id which is enough to create a new card
+
+    
 
     // create the new cards here and add each card's id to cardIds
     // create the new quiz here
 
     let quizzId = uuidv4();
     
+  
+
+
     dispatch(addQuizForTopicId(
       { name:name, 
         topicId:topicId, 

@@ -37,8 +37,6 @@ The payload is {
 export const addQuizForTopicId = (quiz) => {
     const { topicId, id} = quiz;   // TODO=> Becasue these 2 are needed for payload to addQuizIdForTopic and again, to make it easier I will take them out
 
-    console.log(`QUIZ -> topicID is: ${topicId}`)
-    console.log(`QUIZ -> id(quizID later)is: ${id}`)
 
     return (dispatch) => {
         dispatch(quizzesSlice.actions.addQuiz(quiz)) // TODO=> Note that I am not using simply dispatch(addQuiz(quiz)) even though it is exported. The reason is that I am working in SAME FILE AS THE THUNK IS!

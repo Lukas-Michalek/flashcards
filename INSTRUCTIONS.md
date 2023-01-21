@@ -310,7 +310,9 @@ Remember, your action creator expects to receive a payload of the form
 ```javascript
 { id: '123', front: 'front of card', back: 'back of card'}. 
 ```
+```
 You want to collect all the cardIds in an array so that you can pass them to the action creator that generates new quizzes. To use uuidv4 to create an id, call the function like so: uuidv4().
+```
 
 
 `18.`

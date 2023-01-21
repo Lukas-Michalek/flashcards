@@ -26,9 +26,6 @@ export const topicsSlice = createSlice({
                 
             }
 
-            console.log(`add topic ->  id: ${id}`)
-            console.log(`add topic ->  name: ${name}`)
-            console.log(`add topic ->  icon: ${icon}`)
             
 
         },
@@ -41,9 +38,6 @@ export const topicsSlice = createSlice({
 
             const { topicId, quizId} = action.payload;
 
-            console.log(`topicID is: ${topicId}`)
-            console.log(`QuizId is: ${quizId}`)
-            console.log(state.topics[topicId])
 
             state.topics[topicId].quizIds.push(quizId);
 
